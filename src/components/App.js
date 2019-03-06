@@ -8,14 +8,16 @@ import changeVideo from '../actions/currentVideo.js';
 import changeVideoList from '../actions/videoList.js';
 import exampleVideoData from '../data/exampleVideoData.js';
 import store from '../store/store.js';
+import Search from './Search.js';
+import YOUTUBE_API_KEY from '../config/youtube.js';
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      videos: [],
-      currentVideo: null
+      videos: exampleVideoData,
+      currentVideo: exampleVideoData[0]
     };
   }
 
@@ -27,10 +29,15 @@ export default class App extends React.Component {
     this.setState({currentVideo: video});
   }
 
+  handleSearchInputChange(video) {
+    this.setState({currentVideo: video[0]});
+  }
+
   getYouTubeVideos(query) {
     var options = {
-      key: this.props.API_KEY,
-      query: query
+      key: YOUTUBE_API_KEY,
+      query: query,
+      max: 5
     };
 
     this.props.searchYouTube(options, (videos) =>
@@ -48,7 +55,7 @@ export default class App extends React.Component {
       <div>
         <nav className="navbar">
           <div className="col-md-6 col-md-offset-3">
-            <Search handleSearchInputChange={handleSearchInputChange}/>
+            <Search handleSearchInputChange={this.getYouTubeVideos.bind(this)}/>
           </div>
         </nav>
         <div className="row">
