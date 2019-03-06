@@ -6,5 +6,7 @@ var VideoListContainer = () => {};
 
 //TODO: define a VideoListContainer component which will hook up your action
 // dispatchers with your VideoList component props.
+  if ()
+
 
 export default VideoListContainer;
