@@ -18,6 +18,3 @@ const VideoListContainer = connect (
 )(VideoList);
   
 export default VideoListContainer;
-
-// define a VideoListContainer component which will hook up your action
-// dispatchers with your VideoList component props.
