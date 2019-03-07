@@ -18,7 +18,7 @@ var store = createMockStore({
 }, {changeVideoList});
 
 describe('containers', function() {
-  describe('Search Container', function() {
+  xdescribe('Search Container', function() {
     before(function () {
       sinon.spy(store, 'dispatch');
       component = shallowWithStore(<SearchContainer />, store);

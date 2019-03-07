@@ -6,7 +6,7 @@ const mapStateToProps = (state) => ({ videos: state.videos });
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    videoClick: (videos) => {
+    handleVideoListEntryTitleClick: (videos) => {
       dispatch(changeVideo(videos));
     }
   };
