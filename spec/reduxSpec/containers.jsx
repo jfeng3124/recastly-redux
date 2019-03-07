@@ -1,13 +1,15 @@
 import { createMockStore } from 'redux-test-utils';
 import React from 'react';
 import { Provider } from 'react-redux';
-import { mount, shallow } from 'enzyme';
+import { mount, shallow, configure } from 'enzyme';
 import { shallowWithStore } from 'enzyme-redux';
 import { changeVideoList, mockReducer } from './reduxMocks.jsx';
-
+import Adapter from 'enzyme-adapter-react-15';
 import SearchContainer from '../../src/containers/SearchContainer.js';
 import VideoListContainer from '../../src/containers/VideoListContainer.js';
 import VideoPlayerContainer from '../../src/containers/VideoPlayerContainer.js';
+
+configure({ adapter: new Adapter()});
 
 var component,
   container;
@@ -18,7 +20,7 @@ var store = createMockStore({
 }, {changeVideoList});
 
 describe('containers', function() {
-  xdescribe('Search Container', function() {
+  describe('Search Container', function() {
     before(function () {
       sinon.spy(store, 'dispatch');
       component = shallowWithStore(<SearchContainer />, store);

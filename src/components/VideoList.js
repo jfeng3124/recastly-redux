@@ -8,7 +8,7 @@ var VideoList = ({videos, handleVideoListEntryTitleClick}) => (
         <VideoListEntry
           key={video.etag}
           video={video}
-          videoClick={handleVideoListEntryTitleClick}
+          handleVideoListEntryTitleClick={handleVideoListEntryTitleClick}
         />
       ))
     }
