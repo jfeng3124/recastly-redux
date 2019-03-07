@@ -3,12 +3,12 @@ import Search from './../components/Search.js';
 import { connect } from 'react-redux';
 import handleSearchChange from '../actions/search.js';
 
-const mapStateToProps = (state) => ({ handleSearchInputChange: state.handleSearchInputChange });
+const mapStateToProps = (state) => ({});
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    handleSearchInputChange: (value) => {
-      dispatch(handleSearchChange(value));
+    handleSearchInputChange: (video) => {
+      dispatch(handleSearchChange(video));
     }
   };
 };
