@@ -1,4 +1,6 @@
+//import { configure } from 'enzyme';
 import Redux from 'redux';
+// import Adapter from 'enzyme-adapter-react-16';
 
 var currentVideoReducer = (state = null, action) => {
   //define a reducer for the currentVideo field of our state.
@@ -8,7 +10,6 @@ var currentVideoReducer = (state = null, action) => {
   default:
     return state;
   }
-
 };
 
 export default currentVideoReducer;
