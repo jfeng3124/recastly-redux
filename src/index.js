@@ -5,11 +5,13 @@ import searchYouTube from './lib/searchYouTube.js';
 import YOUTUBE_API_KEY from './config/youtube.js';
 import store from './store/store.js';
 import { Provider } from 'react-redux';
+import handleVideoSearch from './actions/search.js';
 
 
 ReactDOM.render(
   <Provider store={store}>
     <App API_KEY={YOUTUBE_API_KEY} searchYouTube={searchYouTube} />
   </Provider>,
-  document.getElementById('app')
+  document.getElementById('app'),
+  store.dispatch(handleVideoSearch('cats'))
 );

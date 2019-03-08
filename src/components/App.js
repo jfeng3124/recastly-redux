@@ -12,6 +12,32 @@ import Search from './Search.js';
 import YOUTUBE_API_KEY from '../config/youtube.js';
 
 export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      videos: [],
+      currentVideo: null
+    };
+  }
+  
+  componentDidMount() {
+    this.getYouTubeVideos('react tutorials');
+  }
+
+  getYouTubeVideos(query) {
+    var options = {
+      key: this.props.API_KEY,
+      query: query
+    };
+
+    this.props.searchYouTube(options, (videos) =>
+      this.setState({
+        videos: videos,
+        currentVideo: videos[0]
+      })
+    );
+  }
 
   render() {
     return (

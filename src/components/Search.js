@@ -1,4 +1,5 @@
 import React from 'react';
+window.react = React;
  
 class Search extends React.Component {
   constructor(props) {
